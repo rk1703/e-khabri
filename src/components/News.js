@@ -93,7 +93,7 @@ const News = (props) => {
                 <div className="col-lg-4 col-md-6" key={element._id}>
                   <Newsitems
                     mode={props.mode}
-                    title={element.title}
+                    title={element?.title}
                     description={element.summary}
                     imageUrl={element.media}
                     url={element.link}
