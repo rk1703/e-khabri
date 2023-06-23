@@ -23,7 +23,6 @@ const News = (props) => {
     let url = `${webUrl}latest_headlines?countries=IN&lang=en&topic=${props.topic}&page_size=${props.pageSize}&page=${page}`;
     let data = await fetch(url, {
       method: "GET",
-      cache: "default",
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
@@ -51,7 +50,6 @@ const News = (props) => {
     }&page_size=${props.pageSize}&page=${page + 1}`;
     let data = await fetch(url, {
       method: "GET",
-      cache: "default",
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
