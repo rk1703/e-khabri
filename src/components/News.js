@@ -11,7 +11,7 @@ const News = (props) => {
   // eslint-disable-next-line
   const [page, setPage] = useState(1);
   const [totalResults, setTotalResults] = useState(0);
-  const webUrl = 'http://api.mediastack.com/v1/news?access_key=747b3776dc22828ea6a8cfd9bbecea9a&countries=in&languages=en';
+  const webUrl = `https://api.mediastack.com/v1/news?access_key=747b3776dc22828ea6a8cfd9bbecea9a&countries=in&languages=en&categories=${props.topic}`;
 
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);

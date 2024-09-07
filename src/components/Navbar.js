@@ -75,12 +75,12 @@ const Navbar = (props) => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className={`nav-link ${location.pathname === "/sports" ? "active" : ""}`} to="/sport">
+                <Link className={`nav-link ${location.pathname === "/sports" ? "active" : ""}`} to="/sports">
                   Sports
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className={`nav-link ${location.pathname === "/technology" ? "active" : ""}`} to="/tech">
+                <Link className={`nav-link ${location.pathname === "/technology" ? "active" : ""}`} to="/technology">
                   Technology
                 </Link>
               </li>
