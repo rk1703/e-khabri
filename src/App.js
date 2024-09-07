@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
   const pageSize = 9;
-  const apiKey = process.env.REACT_APP_API_KEY;
   const [progress, setProgress] = useState(0);
   const [mode, setMode] = useState("light");
   const [btnText, setBtnText] = useState("Enable DarkMode");
@@ -36,9 +35,8 @@ const App = () => {
               <News
                 setProgress={setProgress}
                 mode={mode}
-                apiKey={apiKey}
-                key="news"
-                topic="news"
+                key="general"
+                topic="general"
                 pageSize={pageSize}
               />
             }
@@ -50,23 +48,8 @@ const App = () => {
               <News
                 setProgress={setProgress}
                 mode={mode}
-                apiKey={apiKey}
-                key="news"
-                topic="news"
-                pageSize={pageSize}
-              />
-            }
-          />
-          <Route
-            exact
-            path="/beauty"
-            element={
-              <News
-                setProgress={setProgress}
-                mode={mode}
-                apiKey={apiKey}
-                key="beauty"
-                topic="beauty"
+                key="general"
+                topic="general"
                 pageSize={pageSize}
               />
             }
@@ -78,37 +61,8 @@ const App = () => {
               <News
                 setProgress={setProgress}
                 mode={mode}
-                apiKey={apiKey}
                 key="business"
                 topic="business"
-                pageSize={pageSize}
-              />
-            }
-          />
-          <Route
-            exact
-            path="/economics"
-            element={
-              <News
-                setProgress={setProgress}
-                mode={mode}
-                apiKey={apiKey}
-                key="economics"
-                topic="economics"
-                pageSize={pageSize}
-              />
-            }
-          />
-          <Route
-            exact
-            path="/energy"
-            element={
-              <News
-                setProgress={setProgress}
-                mode={mode}
-                apiKey={apiKey}
-                key="energy"
-                topic="energy"
                 pageSize={pageSize}
               />
             }
@@ -120,79 +74,21 @@ const App = () => {
               <News
                 setProgress={setProgress}
                 mode={mode}
-                apiKey={apiKey}
                 key="entertainment"
                 topic="entertainment"
                 pageSize={pageSize}
               />
             }
-          />
+            />
           <Route
             exact
-            path="/finance"
+            path="/health"
             element={
               <News
                 setProgress={setProgress}
                 mode={mode}
-                apiKey={apiKey}
-                key="finance"
-                topic="finance"
-                pageSize={pageSize}
-              />
-            }
-          />
-          <Route
-            exact
-            path="/food"
-            element={
-              <News
-                setProgress={setProgress}
-                mode={mode}
-                apiKey={apiKey}
-                key="food"
-                topic="food"
-                pageSize={pageSize}
-              />
-            }
-          />
-          <Route
-            exact
-            path="/gaming"
-            element={
-              <News
-                setProgress={setProgress}
-                mode={mode}
-                apiKey={apiKey}
-                key="gaming"
-                topic="gaming"
-                pageSize={pageSize}
-              />
-            }
-          />
-          <Route
-            exact
-            path="/music"
-            element={
-              <News
-                setProgress={setProgress}
-                mode={mode}
-                apiKey={apiKey}
-                key="music"
-                topic="music"
-                pageSize={pageSize}
-              />
-            }
-          />
-          <Route
-            exact
-            path="/politics"
-            element={
-              <News
-                setProgress={setProgress}
-                mode={mode}
-                apiKey={apiKey}
-                key="politics"
-                topic="politics"
+                key="health"
+                topic="health"
                 pageSize={pageSize}
               />
             }
@@ -204,7 +100,6 @@ const App = () => {
               <News
                 setProgress={setProgress}
                 mode={mode}
-                apiKey={apiKey}
                 key="science"
                 topic="science"
                 pageSize={pageSize}
@@ -213,56 +108,26 @@ const App = () => {
           />
           <Route
             exact
-            path="/sport"
+            path="/sports"
             element={
               <News
                 setProgress={setProgress}
                 mode={mode}
-                apiKey={apiKey}
-                key="sport"
-                topic="sport"
+                key="sports"
+                topic="sports"
                 pageSize={pageSize}
               />
             }
           />
           <Route
             exact
-            path="/tech"
+            path="/technology"
             element={
               <News
                 setProgress={setProgress}
                 mode={mode}
-                apiKey={apiKey}
-                key="tech"
-                topic="tech"
-                pageSize={pageSize}
-              />
-            }
-          />
-          <Route
-            exact
-            path="/travel"
-            element={
-              <News
-                setProgress={setProgress}
-                mode={mode}
-                apiKey={apiKey}
-                key="travel"
-                topic="travel"
-                pageSize={pageSize}
-              />
-            }
-          />
-          <Route
-            exact
-            path="/world"
-            element={
-              <News
-                setProgress={setProgress}
-                mode={mode}
-                apiKey={apiKey}
-                key="world"
-                topic="world"
+                key="technology"
+                topic="technology"
                 pageSize={pageSize}
               />
             }

@@ -11,7 +11,7 @@ const News = (props) => {
   // eslint-disable-next-line
   const [page, setPage] = useState(1);
   const [totalResults, setTotalResults] = useState(0);
-  const webUrl = `https://api.newscatcherapi.com/v2/`;
+  const webUrl = 'http://api.mediastack.com/v1/news?access_key=1f834afab56ac75f8099cd90a7a0693e&countries=in&languages=en';
 
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -20,20 +20,14 @@ const News = (props) => {
   const updateNews = async () => {
     props.setProgress(10);
     setLoading(true);
-    let url = `${webUrl}latest_headlines?countries=IN&lang=en&topic=${props.topic}&page_size=${props.pageSize}&page=${page}`;
-    let data = await fetch(url, {
-      method: "GET",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": process.env.REACT_APP_API_KEY,
-      },
-    });
+    let url = `${webUrl}`;
+    let res = await fetch(url);
     props.setProgress(30);
-    let parseData = await data.json();
+    let parseData = await res.json();
+    console.log(parseData)
     props.setProgress(50);
-    setArticles(parseData.articles);
-    setTotalResults(parseData.total_hits);
+    setArticles(parseData?.data);
+    setTotalResults(parseData?.pagination?.total);
     setLoading(false);
     props.setProgress(100);
   };
@@ -45,22 +39,13 @@ const News = (props) => {
 
   const fetchMoreData = async () => {
     setLoading(true);
-    let url = `${webUrl}latest_headlines?countries=IN&lang=en&topic=${
-      props.topic
-    }&page_size=${props.pageSize}&page=${page + 1}`;
-    let data = await fetch(url, {
-      method: "GET",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": process.env.REACT_APP_API_KEY,
-      },
-    });
-    let parseData = await data.json();
+    let url = `${webUrl}`;
+    let res = await fetch(url);
+    let parseData = await res.json();
 
-    setArticles(articles.concat(parseData.articles));
+    setArticles(articles.concat(parseData?.data));
 
-    setTotalResults(parseData.total_hits);
+    setTotalResults(parseData?.pagination?.total);
     setLoading(false);
     console.log("page", page);
     setPage(page + 1);
@@ -94,12 +79,12 @@ const News = (props) => {
                   <Newsitems
                     mode={props.mode}
                     title={element?.title}
-                    description={element.summary}
-                    imageUrl={element.media}
-                    url={element.link}
-                    author={element.author}
-                    time={element.published_date}
-                    source={element.rights}
+                    description={element?.description}
+                    imageUrl={element?.image}
+                    url={element?.url}
+                    author={element?.author}
+                    time={element?.published_at}
+                    source={element?.source}
                   />
                 </div>
               );
@@ -118,8 +103,8 @@ News.propTypes = {
 
 News.defaultProps = {
   pageSize: 6,
-  country: "IN",
-  topic: "news",
+  country: "in",
+  topic: "general",
 };
 
 export default News;
